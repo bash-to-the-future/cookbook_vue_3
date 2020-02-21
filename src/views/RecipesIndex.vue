@@ -3,6 +3,7 @@
     <h1>All Recipes</h1>
 
     <div v-for="recipe in recipes">
+      <img v-bind:src="recipe.image_url" v-bind:alt="recipe.title">
       <h2>{{ recipe.title }}</h2>
       <h4>Prep Time: {{ recipe.formatted.prep_time }}</h4>
       <p>{{ recipe.ingredients }}</p>
