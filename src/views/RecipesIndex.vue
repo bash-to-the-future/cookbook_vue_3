@@ -3,8 +3,10 @@
     <h1>All Recipes</h1>
 
     <div v-for="recipe in recipes">
-      <img v-bind:src="recipe.image_url" v-bind:alt="recipe.title">
-      <h2>{{ recipe.title }}</h2>
+      <router-link v-bind:to="'/recipes/' + recipe.id">
+        <img v-bind:src="recipe.image_url" v-bind:alt="recipe.title">
+        <h2>{{ recipe.title }}</h2>
+      </router-link>
       <h4>Prep Time: {{ recipe.formatted.prep_time }}</h4>
       <p>{{ recipe.ingredients }}</p>
       <br>
