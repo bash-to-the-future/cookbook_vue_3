@@ -1,8 +1,8 @@
 <template>
   <div class="signup">
-    <div class="container">
-      <form v-on:submit.prevent="submit()">
-        <h1>Signup</h1>
+    <div class="row">
+      <form class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1" v-on:submit.prevent="submit()">
+        <h1 class="text-center mb-5">Signup</h1>
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
@@ -23,7 +23,7 @@
           <input type="password" class="form-control" v-model="passwordConfirmation">
         </div>
         <input type="submit" class="btn btn-primary" value="Submit">
-      </form>
+      </form>      
     </div>
   </div>
 </template>

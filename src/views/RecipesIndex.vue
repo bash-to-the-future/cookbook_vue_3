@@ -1,15 +1,20 @@
 <template>
   <div class="recipes-index">
-    <h1>All Recipes</h1>
+    <h1 class="text-center mb-5">Recipes</h1>
 
-    <div v-for="recipe in recipes">
-      <router-link v-bind:to="'/recipes/' + recipe.id">
-        <img v-bind:src="recipe.image_url" v-bind:alt="recipe.title">
-        <h2>{{ recipe.title }}</h2>
-      </router-link>
-      <h4>Prep Time: {{ recipe.formatted.prep_time }}</h4>
-      <p>{{ recipe.ingredients }}</p>
-      <br>
+    <div class="row">
+      <div class="col-sm-4 mb-2" v-for="recipe in recipes">
+        <router-link v-bind:to="'/recipes/' + recipe.id">
+          <div class="card">
+            <img class="card-img-top" v-bind:src="recipe.image_url" v-bind:alt="recipe.title">
+            <div class="card-body text-info">
+              <h5 class="card-title">{{ recipe.title }}</h5>
+              <p class="card-text">Prep Time: {{ recipe.formatted.prep_time }}</p>
+            </div>
+          </div>
+        </router-link>
+      </div>
+
     </div>
   </div>
 </template>

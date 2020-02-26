@@ -1,34 +1,41 @@
 <template>
   <div class="recipes-edit">
-    <form v-on:submit.prevent="updateRecipe()">
-      <h1>Edit Recipe</h1>
+    <div class="row">
+      <form class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1" v-on:submit.prevent="updateRecipe()">
+        <h1 class="text-center mb-5">Edit Recipe</h1>
 
-      <ul>
-        <li v-for="error in errors">{{ error }}</li>
-      </ul>
+        <ul>
+          <li class="text-danger" v-for="error in errors">{{ error }}</li>
+        </ul>
 
-      <div>
-        Title: <input type="text" v-model="recipe.title">
-      </div>
+        <div class="form-group">
+          <label>Title: </label>
+          <input class="form-control" type="text" v-model="recipe.title">
+        </div>
 
-      <div>
-        Prep Time: <input type="text" v-model="recipe.prep_time">
-      </div>
+        <div class="form-group">
+          <label>Prep Time: </label>
+          <input class="form-control" type="number" v-model="recipe.prep_time">
+        </div>
 
-      <div>
-        Ingredients: <input type="text" v-model="recipe.ingredients">
-      </div>
+        <div class="form-group">
+          <label>Ingredients: </label>
+          <input class="form-control" type="text" v-model="recipe.ingredients">
+        </div>
 
-      <div>
-        Directions: <input type="text" v-model="recipe.directions">
-      </div>
+        <div class="form-group">
+          <label>Directions: </label>
+          <input class="form-control" type="text" v-model="recipe.directions">
+        </div>
 
-      <div>
-        Image Url: <input type="text" v-model="recipe.image_url">
-      </div>
+        <div class="form-group">
+          <label>Image Url: </label>
+          <input class="form-control" type="text" v-model="recipe.image_url">
+        </div>
 
-      <input type="submit" value="Update">
-    </form>
+        <input class="btn btn-info" type="submit" value="Update">
+      </form>
+    </div>
   </div>
 </template>
 
