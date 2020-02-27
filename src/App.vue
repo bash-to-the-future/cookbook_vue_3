@@ -25,6 +25,11 @@
             </div>
           </li>
         </ul>
+
+        <ul v-if="userEmail" class="navbar-nav ml-auto mr-4">
+          <li class="nav-item text-light">Welcome, {{ userEmail }}</li>
+        </ul>
+
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -57,3 +62,21 @@ a.navbar-brand.text-my-green {
   color: #0A0;
 }
 </style>
+
+
+<script>
+
+export default {
+  data: function() {
+    return {
+      userEmail: ""
+    };
+  },
+  created: function() {
+    var email = localStorage.getItem("userEmail");
+    if (email) {
+      this.userEmail = email;
+    }
+  }
+}
+</script>

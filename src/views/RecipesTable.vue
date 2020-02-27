@@ -16,7 +16,7 @@
           <th scope="row">{{ recipe.id }}</th>
           <td><router-link v-bind:to="'/recipes/' + recipe.id">{{ recipe.title }}</router-link></td>
           <td>{{ recipe.prep_time }}</td>
-          <td>{{ recipe.created_at }}</td>
+          <td>{{ formatDate(recipe.created_at) }}</td>
         </tr>
       </tbody>
     </table>
@@ -28,6 +28,7 @@
 
 <script>
 var axios = require("axios");
+import moment from "moment";
 
 export default {
   data: function() {
@@ -42,6 +43,13 @@ export default {
         this.recipes = response.data;
       });
   },
-  methods: {}
+  methods: {
+    relativeDate: function(date) {
+      return moment(date).fromNow();
+    },
+    formatDate: function(date) {
+      return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+    }
+  }
 };
 </script>
