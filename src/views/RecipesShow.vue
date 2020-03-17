@@ -42,6 +42,7 @@
         <div>
           <router-link class="btn btn-info m-2" v-bind:to="'/recipes/' + recipe.id + '/edit'">Edit</router-link>
           <button class="btn btn-info m-2" v-on:click="destroyRecipe()">Delete</button>
+          <router-link class="btn btn-danger" :to="'/recipes/' + (1 + recipe.id)">Next</router-link>
         </div>
       </div>
       <div class="col-md-6">
@@ -89,6 +90,24 @@ export default {
           this.$router.push("/");
         });
     }
+  },
+  watch: {
+    $route: function() {
+      axios
+        .get("/api/recipes/" + this.$route.params.id)
+        .then(response => {
+          this.recipe = response.data;
+        });
+    }
   }
+  // beforeRouteUpdate (to, from, next) {
+  //   axios
+  //     .get("/api/recipes/" + to.params.id)
+  //     .then(response => {
+  //       this.recipe = response.data;
+  //     });
+
+  //   next()
+  // }
 };
 </script>

@@ -38,6 +38,7 @@ export default {
         this.recipes = response.data;
       });
   },
-  methods: {}
+  methods: {},
+  mounted: function() {}
 };
 </script>

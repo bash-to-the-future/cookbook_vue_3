@@ -10,6 +10,7 @@ import RecipesTable from '../views/RecipesTable.vue';
 import RecipesNew from '../views/RecipesNew.vue';
 import RecipesShow from '../views/RecipesShow.vue';
 import RecipesEdit from '../views/RecipesEdit.vue';
+import Magic from '../views/Magic.vue';
 
 
 Vue.use(VueRouter)
@@ -24,7 +25,9 @@ const routes = [
   {path: '/recipes/table', name: 'recipes-table', component: RecipesTable},
   {path: '/recipes/new', name: 'recipes-new', component: RecipesNew},
   {path: '/recipes/:id', name: 'recipes-show', component: RecipesShow},
-  {path: '/recipes/:id/edit', name: 'recipes-edit', component: RecipesEdit}
+  {path: '/recipes/:id/edit', name: 'recipes-edit', component: RecipesEdit},
+
+  {path: '/magic', name: 'magic', component: Magic}
 ]
 
 const router = new VueRouter({

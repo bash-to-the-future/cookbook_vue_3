@@ -30,9 +30,21 @@
           <li class="nav-item text-light">Welcome, {{ userEmail }}</li>
         </ul>
 
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form @submit.prevent="$router.push('/recipes/table')" class="form-inline my-2 my-lg-0">
+          <input 
+            class="form-control mr-sm-2" 
+            type="search" 
+            placeholder="Search" 
+            aria-label="Search" 
+            v-model="titleFilter"
+            list="titles" 
+            > 
+
+          <datalist id="titles">
+            <option v-for="recipe in recipes">{{ recipe.title }}</option>
+          </datalist>
+
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Display</button>
         </form>
       </div>
     </nav>
@@ -65,11 +77,14 @@ a.navbar-brand.text-my-green {
 
 
 <script>
+var axios = require('axios');
 
 export default {
   data: function() {
     return {
-      userEmail: ""
+      userEmail: "",
+      titleFilter: "",
+      recipes: []
     };
   },
   created: function() {
@@ -77,6 +92,12 @@ export default {
     if (email) {
       this.userEmail = email;
     }
+
+    axios
+      .get("/api/recipes")
+      .then(response => {
+        this.recipes = response.data;
+      });
   }
 }
 </script>
