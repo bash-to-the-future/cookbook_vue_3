@@ -21,8 +21,8 @@
     "vue2-filters": "^0.9.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.4",
-    "@vue/cli-service": "^3.0.4",
+    "@vue/cli-plugin-babel": "^3.12.1",
+    "@vue/cli-service": "^5.0.8",
     "vue-template-compiler": "^2.6.10"
   }
 }
